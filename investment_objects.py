@@ -9,6 +9,8 @@ class Portfolio:
         self.owner = owner
         self.holdings = pd.DataFrame()
 
+        owner._set_up_pf(portfolio=self)
+
     def load(self, location):
         self.holdings = pd.read_csv(location, sep=None)
 
@@ -20,5 +22,5 @@ class Investor:
         self.name = first_name + " " + last_name
         self.portfolios = {}
 
-    def set_up_pf(self, portfolio):
+    def _set_up_pf(self, portfolio):
         self.portfolios[portfolio.id] = portfolio
