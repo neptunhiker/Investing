@@ -10,7 +10,7 @@ class Portfolio:
         self.holdings = pd.DataFrame()
 
     def load(self, location):
-        self.holdings = pd.read_csv("../Data/test-data.csv")
+        self.holdings = pd.read_csv(location, sep=None)
 
 
 
