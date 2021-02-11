@@ -10,7 +10,8 @@ class Portfolio:
         self.holdings = pd.DataFrame()
 
     def load(self, location):
-        pass
+        self.holdings = pd.read_csv("../Data/test-data.csv")
+
 
 
 class Investor:
