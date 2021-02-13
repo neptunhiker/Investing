@@ -5,8 +5,8 @@ from investment_objects import Investor
 inv = Investor(first_name="Robert", last_name="Robinson")
 
 # create portfolios and assign to investor
-pf01 = Portfolio("my first portfolio", "xyz123", inv)
-pf02 = Portfolio("my second portfolio", "abc123", inv)
+pf01 = Portfolio(name="my first portfolio", id="xyz123", owner=inv)
+pf02 = Portfolio(name="my second portfolio", id="abc123", owner=inv)
 
 # load test data into pf
 pf01.load()

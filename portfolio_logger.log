@@ -1,0 +1,4 @@
+13-Feb-21 14:52:37 - level: INFO - module: investment_objects - function: load - msg: damn
+13-Feb-21 14:56:40 - level: INFO - module: investment_objects - function: load - msg: Security holdings loaded into portfolio my first portfolio.
+13-Feb-21 14:57:04 - level: INFO - module: investment_objects - function: load - msg: Security holdings loaded into portfolio 'my first portfolio'.
+13-Feb-21 14:57:34 - INFO - investment_objects - load - Security holdings loaded into portfolio 'my first portfolio'.

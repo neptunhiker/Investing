@@ -3,7 +3,7 @@ import logging
 import pandas as pd
 
 logging.basicConfig(filename="portfolio_logger.log",level=logging.DEBUG, filemode="a", datefmt='%d-%b-%y %H:%M:%S',
-                    format='%(asctime)s - level: %(levelname)s - module: %(module)s - function: %(funcName)s - msg: %(message)s')
+                    format='%(asctime)s - %(levelname)s - %(module)s - %(funcName)s - %(message)s')
 
 class Portfolio:
 
@@ -20,9 +20,11 @@ class Portfolio:
 
         if location is None:
             try:
-                self.holdings = pd.read_csv("Data/test-datia.csv", sep=None, engine="python")
+                self.holdings = pd.read_csv("Data/test-data.csv", sep=None, engine="python")
+                logging.info("Security holdings loaded into portfolio '" + self.name + "'.")
+                # logging.info("")
             except FileNotFoundError:
-                logging.info("damn")
+                logging.info("Test data loaded into portfolio '" + self.name + "'.")
         else:
             try:
                 self.holdings = pd.read_csv(location, sep=None)
