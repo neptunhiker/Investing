@@ -2,7 +2,7 @@ import logging
 
 import pandas as pd
 
-logging.basicConfig(filename="portfolio_logger.log",level=logging.DEBUG, filemode="a", datefmt='%d-%b-%y %H:%M:%S',
+logging.basicConfig(filename="portfolio_logger.log",level=logging.DEBUG, filemode="w", datefmt='%d-%b-%y %H:%M:%S',
                     format='%(asctime)s - %(levelname)s - %(module)s - %(funcName)s - %(message)s')
 
 class Portfolio:
@@ -14,9 +14,10 @@ class Portfolio:
         self.owner = owner
         self.holdings = pd.DataFrame()
 
-        owner._set_up_pf(portfolio=self)
-
         logging.info("Portfolio '" + self.name + "' instantiated.")
+
+        self.owner._set_up_pf(portfolio=self)
+
 
     def load(self, location=None):
 
@@ -27,8 +28,8 @@ class Portfolio:
             self.holdings = pd.read_csv(location, sep=None, engine="python")
             logging.info("Security holdings from " + location + " loaded into portfolio '" + self.name + "'.")
         except FileNotFoundError as err:
-            logging.info(err)
-
+            logging.info("Portfolio data at '" + location + "' could not be found.")
+            logging.error(err)
 
 
 class Investor:
@@ -36,6 +37,8 @@ class Investor:
     def __init__(self, first_name, last_name):
         self.name = first_name + " " + last_name
         self.portfolios = {}
+        logging.info("Investor '" + self.name + "' instantiated.")
 
     def _set_up_pf(self, portfolio):
         self.portfolios[portfolio.id] = portfolio
+        logging.info("Portfolio '" + portfolio.name + "' set up for " + self.name + ".")
