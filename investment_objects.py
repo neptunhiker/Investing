@@ -16,20 +16,19 @@ class Portfolio:
 
         owner._set_up_pf(portfolio=self)
 
+        logging.info("Portfolio '" + self.name + "' instantiated.")
+
     def load(self, location=None):
 
         if location is None:
-            try:
-                self.holdings = pd.read_csv("Data/test-data.csv", sep=None, engine="python")
-                logging.info("Security holdings loaded into portfolio '" + self.name + "'.")
-                # logging.info("")
-            except FileNotFoundError:
-                logging.info("Test data loaded into portfolio '" + self.name + "'.")
-        else:
-            try:
-                self.holdings = pd.read_csv(location, sep=None)
-            except FileNotFoundError:
-                pass
+            location = "Data/testd-data.csv"
+
+        try:
+            self.holdings = pd.read_csv(location, sep=None, engine="python")
+            logging.info("Security holdings from " + location + " loaded into portfolio '" + self.name + "'.")
+        except FileNotFoundError as err:
+            logging.info(err)
+
 
 
 class Investor:
