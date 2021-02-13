@@ -1,4 +1,9 @@
+import logging
+
 import pandas as pd
+
+logging.basicConfig(filename="portfolio_logger.log",level=logging.DEBUG, filemode="a", datefmt='%d-%b-%y %H:%M:%S',
+                    format='%(asctime)s - level: %(levelname)s - module: %(module)s - function: %(funcName)s - msg: %(message)s')
 
 class Portfolio:
 
@@ -12,11 +17,17 @@ class Portfolio:
         owner._set_up_pf(portfolio=self)
 
     def load(self, location=None):
-        if location is None:
-            self.holdings = pd.read_csv("Data/test-data.csv", sep=None)
-        else:
-            self.holdings = pd.read_csv(location, sep=None)
 
+        if location is None:
+            try:
+                self.holdings = pd.read_csv("Data/test-datia.csv", sep=None, engine="python")
+            except FileNotFoundError:
+                logging.info("damn")
+        else:
+            try:
+                self.holdings = pd.read_csv(location, sep=None)
+            except FileNotFoundError:
+                pass
 
 
 class Investor:
