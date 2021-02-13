@@ -9,7 +9,7 @@ pf01 = Portfolio("my first portfolio", "xyz123", inv)
 pf02 = Portfolio("my second portfolio", "abc123", inv)
 
 # load test data into pf
-pf01.load(location="../Data/test-data.csv")
+pf01.load()
 
 # print pf holdings
 print(pf01.holdings)

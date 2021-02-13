@@ -11,8 +11,11 @@ class Portfolio:
 
         owner._set_up_pf(portfolio=self)
 
-    def load(self, location):
-        self.holdings = pd.read_csv(location, sep=None)
+    def load(self, location=None):
+        if location is None:
+            self.holdings = pd.read_csv("Data/test-data.csv", sep=None)
+        else:
+            self.holdings = pd.read_csv(location, sep=None)
 
 
 
