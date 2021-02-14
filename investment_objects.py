@@ -1,3 +1,4 @@
+import pickle
 import logging
 
 import pandas as pd
@@ -19,6 +20,8 @@ class Portfolio:
         self.owner._set_up_pf(portfolio=self)
 
 
+
+
     def load(self, location=None):
 
         if location is None:
@@ -35,9 +38,13 @@ class Portfolio:
 class Investor:
 
     def __init__(self, first_name, last_name):
+        self.first_name = first_name
+        self.last_name = last_name
         self.name = first_name + " " + last_name
         self.portfolios = {}
         logging.info("Investor '" + self.name + "' instantiated.")
+
+
 
     def _set_up_pf(self, portfolio):
         self.portfolios[portfolio.id] = portfolio

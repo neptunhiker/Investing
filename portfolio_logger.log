@@ -1,7 +1,1 @@
-13-Feb-21 15:08:46 - INFO - investment_objects - __init__ - Investor 'Robert Robinson' instantiated.
-13-Feb-21 15:08:46 - INFO - investment_objects - __init__ - Portfolio 'my first portfolio' instantiated.
-13-Feb-21 15:08:46 - INFO - investment_objects - _set_up_pf - Portfolio 'my first portfolio' set up for Robert Robinson.
-13-Feb-21 15:08:46 - INFO - investment_objects - __init__ - Portfolio 'my second portfolio' instantiated.
-13-Feb-21 15:08:46 - INFO - investment_objects - _set_up_pf - Portfolio 'my second portfolio' set up for Robert Robinson.
-13-Feb-21 15:08:46 - INFO - investment_objects - load - Portfolio data at 'Data/testd-data.csv' could not be found.
-13-Feb-21 15:08:46 - ERROR - investment_objects - load - [Errno 2] No such file or directory: 'Data/testd-data.csv'
+14-Feb-21 14:29:02 - INFO - investment_objects - __init__ - Investor 'pe asf' instantiated.
